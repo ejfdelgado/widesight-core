@@ -61,6 +61,10 @@ if (location.hostname == "localhost") {
     provideDatabase(() => getDatabase()),
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage()),
+    { provide: 'authProvider', useValue: 'google' },
+    { provide: 'msTenant', useValue: '' },
+    { provide: 'msClientId', useValue: '' },
+    { provide: "msGroupIdMap", useValue: {} },
   ],
   bootstrap: [AppComponent],
 })
