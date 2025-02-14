@@ -1,0 +1,14 @@
+{
+    "localFiles": {
+        "audio": {
+            "type": "audio",
+            "base64": false,
+            "format": "mp3",
+            "bitsPerSecond": "192k"
+        },
+        "image": {
+            "type": "image",
+            "base64": false
+        }
+    }
+}

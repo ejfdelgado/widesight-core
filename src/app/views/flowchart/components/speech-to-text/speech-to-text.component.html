@@ -1,0 +1,98 @@
+<div class="container_vertical padding_10">
+    <form class="row_options form-container layout_columna border_bottom" [formGroup]="formLeft">
+        <mat-form-field class="">
+            <mat-label>Language</mat-label>
+            <select matNativeControl [(ngModel)]="language" [ngModelOptions]="{standalone: true}">
+                <option [ngValue]="'es'">Español</option>
+                <option [ngValue]="'en'">English</option>
+            </select>
+        </mat-form-field>
+        <mat-form-field class="full">
+            <mat-label>Database</mat-label>
+            <input type="text" matInput [(ngModel)]="diarizationDbName" [ngModelOptions]="{standalone: true}" />
+        </mat-form-field>
+        <button class="button_general" mat-raised-button (click)="createDiarizationDB()">
+            <mat-icon class="peque">add</mat-icon>
+            <span>Create</span>
+        </button>
+        <button *ngIf="!listening" class="button_general full" mat-raised-button (click)="start()">
+            <mat-icon class="peque">play_arrow</mat-icon>
+            <span>Start</span>
+        </button>
+        <button *ngIf="listening" class="button_general full" mat-raised-button (click)="pause()"
+            [ngClass]="{'active': states.listening!==0}">
+            <mat-icon class="peque">pause</mat-icon>
+            <span>Pause</span>
+        </button>
+        <button class="button_general" mat-raised-button (click)="summarize()">
+            <mat-icon class="peque">menu_book</mat-icon>
+            <span>Summary</span>
+        </button>
+        <mat-form-field>
+            <mat-label>Audio</mat-label>
+            <button mat-icon-button matPrefix (click)="f_input.click()">
+                <mat-icon>attach_file</mat-icon>
+            </button>
+            <input type="text" readonly matInput formControlName="display" />
+            <input type="file" multiple hidden #f_input (change)="handleFileInputChange(f_input.files)" />
+        </mat-form-field>
+        <button class="button_general" mat-raised-button (click)="uploadFile()">
+            <mat-icon class="peque">upload</mat-icon>
+            <span>Upload</span>
+        </button>
+        <mat-form-field class="full">
+            <mat-label>Search</mat-label>
+            <input type="text" matInput [(ngModel)]="queryText" [ngModelOptions]="{standalone: true}" />
+        </mat-form-field>
+        <button class="button_general" mat-raised-button (click)="searchIntent()">
+            <mat-icon class="peque">search</mat-icon>
+            <span>Search</span>
+        </button>
+    </form>
+    <mat-progress-bar *ngIf="states.listening===0" mode="determinate" value="0"></mat-progress-bar>
+    <mat-progress-bar *ngIf="states.listening!==0" mode="buffer"></mat-progress-bar>
+    <div *ngIf="summaryText" class="container_vertical summary">
+        <p>Summary: <strong class="red">{{ summaryRatio.toFixed(1) }}%</strong></p>
+        <p>{{ summaryText }}</p>
+    </div>
+    <div>
+        <div *ngFor="let audio of audios; trackBy:audioIdentity" class="row_options">
+            <button class="button_general" mat-raised-button (click)="removeAudio(audio)">
+                <mat-icon class="no_text">close</mat-icon>
+            </button>
+            <audio src="{{ audio.base64 }}" controls></audio>
+            <button class="button_general" mat-raised-button (click)="speechToText(audio)">
+                <mat-icon class="no_text">chat</mat-icon>
+            </button>
+            <button class="button_general" mat-raised-button (click)="diarization(audio)">
+                <mat-icon class="no_text">interpreter_mode</mat-icon>
+            </button>
+            <button class="button_general" mat-raised-button (click)="indexIntent(audio)">
+                <mat-icon class="no_text">polyline</mat-icon>
+            </button>
+            <button class="button_general" mat-raised-button (click)="summarize()">
+                <mat-icon class="no_text">menu_book</mat-icon>
+            </button>
+            <button class="button_general" mat-raised-button (click)="showAudioDetail(audio)">
+                <mat-icon class="no_text">visibility</mat-icon>
+            </button>
+            <div class="container_vertical transcription full no_gap">
+                <p>{{ audio.start | epoch2date }} - {{ audio.end | epoch2date }}: {{ audio.duration.toFixed(1) }}s</p>
+                <p>Speech to text: <strong class="red">{{ audio.transcriptProgress.ratio.toFixed(1) }}%</strong></p>
+                <p *ngIf="audio.transcriptProgress.processTime != 0" class="blue_text">{{ audio.transcript.transcription
+                    }}</p>
+                <mat-progress-bar *ngIf="audio.transcriptProgress.processTime == 0"
+                    mode="indeterminate"></mat-progress-bar>
+                <p>Diarization: <strong class="red">{{ audio.diarizationProgress.ratio.toFixed(1) }}%</strong></p>
+                <p *ngIf="audio.diarizationProgress.processTime != 0" class="blue_text">
+                    <span *ngFor="let phrase of audio.diarization">{{ phrase.speaker }}: <strong>{{ phrase.text }}</strong><br></span>
+                </p>
+                <mat-progress-bar *ngIf="audio.diarizationProgress.processTime == 0"
+                    mode="indeterminate"></mat-progress-bar>
+                <p>Indexing: <strong class="red">{{ audio.intentProgress.ratio.toFixed(1) }}%</strong></p>
+                <mat-progress-bar *ngIf="audio.intentProgress.processTime == 0"
+                    mode="indeterminate"></mat-progress-bar>
+            </div>
+        </div>
+    </div>
+</div>

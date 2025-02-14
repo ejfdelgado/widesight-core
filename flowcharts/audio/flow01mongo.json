@@ -1,0 +1,44 @@
+{
+    "document": {
+        "indexes": [
+            {
+                "desc": "Using bussines id",
+                "val": {
+                    "document_id": 1
+                }
+            }
+        ]
+    },
+    "segment": {
+        "indexes": [
+            {
+                "desc": "Using bussines id sorting by start_time asc",
+                "val": {
+                    "document_id": 1,
+                    "start_time": 1
+                }
+            },
+            {
+                "desc": "Search text",
+                "val": {
+                    "text": "text"
+                },
+                "opt": {
+                    "collation": {
+                        "locale": "simple"
+                    }
+                }
+            }
+        ]
+    },
+    "plates": {
+        "indexes": [
+            {
+                "desc": "Index",
+                "val": {
+                    "license_plate_text": 1
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,64 @@
+<div class="my_full">
+    <div class="left_side">
+        <form class="form-container layout_columna border_bottom" [formGroup]="formLeft">
+            <mat-form-field style="width: 100%;">
+                <mat-label>Document Id</mat-label>
+                <input matInput formControlName="moviePath" placeholder="Movie path" type="text" required />
+            </mat-form-field>
+        </form>
+        <div class="frame_gallery_container">
+            <div *ngIf="currentDocument" class="frame_gallery">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <span>File Name: <strong>{{ currentDocument.file_name }}</strong></span>
+                            </td>
+                            <td>
+                                <span>Mime-Type: <strong>{{ currentDocument.mime_type }}</strong></span>
+                            </td>
+                            <td>
+                                <span>Bytes Size: <strong>{{ currentDocument.size_bytes }}</strong></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>Duration: <strong>{{ currentDocument.seconds }} seconds</strong></span>
+                            </td>
+                            <td>
+                                <span>Image Size: <strong>{{ currentDocument.image.width }} pixels x {{
+                                        currentDocument.image.height }} pixels</strong></span>
+                            </td>
+                            <td>
+                                <span>Audio channels: <strong>{{ currentDocument.audio.channels }}</strong></span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="frame_gallery">
+                <div class="one_frame" *ngFor="let frame of loadedArray">
+                    <div class="one_frame_row">
+                        <div class="one_frame_column column_centered">
+                            <img class="speaker_icon" src="./assets/img/avatar_gray.svg"
+                                [ngStyle]="{'filter': getColorForSpeaker(frame.speaker)}" />
+                            <span class="very_small">{{ frame.speaker.replace('_',' #') }}</span>
+                        </div>
+                        <div class="one_frame_column full_flex">
+                            <p class="segment_header">[{{ frame.start_time.toFixed(0) }}s - {{ frame.end_time.toFixed(0)
+                                }}s]:
+                            </p>
+                            <p class="segment_text"><i>"{{ frame.text }}"</i></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="buttons_container">
+                <button class="button_general button_primary" mat-raised-button color="primary" (click)="pageMongo()">
+                    <mat-icon class="peque">auto_awesome</mat-icon>
+                    <span>Read next page...</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

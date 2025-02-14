@@ -1,0 +1,253 @@
+.my_full {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  font-size: 1.5em;
+}
+
+.my_full textarea,
+.my_full span,
+.my_full p {
+  font-family: Arial, Helvetica, sans-serif !important;
+}
+
+.my_full .left_side {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  max-width: 50vw;
+}
+
+.my_full .left_side pre {
+  white-space: break-spaces;
+}
+
+.my_full .right_side {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.my_full form {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  flex: 1;
+  gap: 10px;
+}
+
+.my_full form .fit {
+  flex: 1;
+}
+
+.my_full form mat-form-field {
+  width: 100%;
+}
+
+.answer_place {
+  width: 100%;
+}
+
+.answer_place .answer {
+  font-style: bold;
+}
+
+.answer_place .query {
+  font-style: italic;
+  font-size: 0.7em;
+}
+
+.jobs_container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.results_container {
+  display: flex;
+  flex-direction: column;
+}
+
+mat-progress-bar {
+  margin: 10px 0;
+}
+
+app-imagepicker {
+  height: 200px;
+  display: block;
+}
+
+.one_face_found {
+  display: flex;
+  flex-direction: column;
+}
+
+.one_face_found .footer_text {
+  text-align: center;
+  margin-top: 12px;
+}
+
+.single_found_face {
+  flex: 1;
+  width: 100%;
+  height: 300px;
+  min-height: 300px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+}
+
+.single_found_face img {
+  height: 300px;
+  min-height: 300px;
+  max-height: 300px;
+}
+
+.single_found_face img,
+.single_found_face .bbox_overlay {
+  position: absolute;
+}
+
+.single_found_face .bbox_overlay .my_bbox {
+  position: absolute;
+  border: 2px solid;
+  border-color: red;
+  background-color: transparent;
+  box-shadow: 0px 0px 13px 6px rgba(255, 255, 255, 1);
+  -webkit-box-shadow: 0px 0px 13px 6px rgba(255, 255, 255, 1);
+  -moz-box-shadow: 0px 0px 13px 6px rgba(255, 255, 255, 1);
+}
+
+.row_of_buttons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.container_row {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.a_link_break {
+  word-break: break-all;
+}
+
+.full_width {
+  width: 100%;
+}
+
+.container_horizontal {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: center;
+}
+
+.container_horizontal.aligned {
+  align-items: center;
+}
+
+.flex_full_width {
+  flex: 1;
+}
+
+.container_vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+}
+
+.container_vertical.aligned {
+  align-items: center;
+}
+
+.container_vertical>* {
+  flex: 1;
+}
+
+
+/* El contenedor del interruptor */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Ocultar el checkbox HTML */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* El slider */
+.switch .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+}
+
+.switch .slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+}
+
+/* Cambiar el color de fondo cuando el checkbox está activado */
+.switch input:checked+.slider {
+  background-color: #110a74;
+}
+
+/* Mover el slider a la derecha cuando el checkbox está activado */
+.switch input:checked+.slider:before {
+  transform: translateX(26px);
+}
+
+/* Slider redondeado */
+.switch .slider.round {
+  border-radius: 34px;
+}
+
+.switch .slider.round:before {
+  border-radius: 50%;
+}
+
+.stderr {
+  color: red;
+}
+
+.select_with_buttons button.button_general {
+  height: 56px;
+}
+
+.select_with_buttons button.button_general mat-icon {
+  margin: 0;
+  font-size: 1.9em;
+  width: unset;
+  height: unset;
+}
+
+textarea.long {
+  height: 300px;
+}

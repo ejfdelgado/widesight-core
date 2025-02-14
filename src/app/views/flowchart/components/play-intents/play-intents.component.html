@@ -1,0 +1,359 @@
+<div class="my_full">
+    <div class="left_side">
+        <form class="form-container layout_columna border_bottom" [formGroup]="formLeft">
+            <div class="row_of_buttons">
+                <button class="button_general button_danger" mat-raised-button color="danger"
+                    (click)="destroyGeneral()">
+                    <mat-icon class="peque">close</mat-icon>
+                    <span>Destroy All</span>
+                </button>
+                <button class="button_general button_primary" mat-raised-button color="primary"
+                    (click)="recreateGeneral()">
+                    <mat-icon class="peque">auto_awesome</mat-icon>
+                    <span>Recreate All</span>
+                </button>
+            </div>
+            <mat-form-field class="full_width">
+                <mat-label>Email</mat-label>
+                <input type="text" matInput formControlName="accountEmail" />
+            </mat-form-field>
+            <div class="container_horizontal full_width select_with_buttons">
+                <button class="button_general button_primary" mat-raised-button color="primary"
+                    (click)="listAccounts()">
+                    <mat-icon class="peque">refresh</mat-icon>
+                </button>
+                <button class="button_general button_primary" mat-raised-button color="primary"
+                    (click)="createAccount()">
+                    <mat-icon class="peque">add</mat-icon>
+                </button>
+                <mat-form-field class="flex_full_width">
+                    <mat-label>Account Id</mat-label>
+                    <select matNativeControl formControlName="accountId">
+                        <option [ngValue]="null">None</option>
+                        <option *ngFor="let account of accounts" [ngValue]="account.id">{{ account.name }}</option>
+                    </select>
+                </mat-form-field>
+                <button class="button_general button_danger" mat-raised-button color="primary"
+                    (click)="deleteAccount()">
+                    <mat-icon class="peque">close</mat-icon>
+                </button>
+            </div>
+            <div class="container_horizontal full_width select_with_buttons">
+                <button class="button_general button_primary" mat-raised-button color="primary" (click)="listApps()">
+                    <mat-icon class="peque">refresh</mat-icon>
+                </button>
+                <button class="button_general button_primary" mat-raised-button color="primary" (click)="createApp()">
+                    <mat-icon class="peque">add</mat-icon>
+                </button>
+                <mat-form-field class="flex_full_width">
+                    <mat-label>App Id</mat-label>
+                    <select matNativeControl formControlName="accountAppId">
+                        <option [ngValue]="null">None</option>
+                        <option *ngFor="let app of apps" [ngValue]="app.id">{{ app.name }}</option>
+                    </select>
+                </mat-form-field>
+                <button class="button_general button_danger" mat-raised-button color="primary" (click)="deleteApp()">
+                    <mat-icon class="peque">close</mat-icon>
+                </button>
+            </div>
+            <div class="container_horizontal full_width select_with_buttons">
+                <button class="button_general button_primary" mat-raised-button color="primary" (click)="listVideos()">
+                    <mat-icon class="peque">refresh</mat-icon>
+                </button>
+                <mat-form-field class="flex_full_width">
+                    <mat-label>Video Id</mat-label>
+                    <select matNativeControl formControlName="videoId">
+                        <option [ngValue]="null">None</option>
+                        <option *ngFor="let video of videos" [ngValue]="video.id">{{ video.name }}</option>
+                    </select>
+                </mat-form-field>
+                <button class="button_general button_secondary" mat-raised-button color="secondary"
+                    (click)="getVideoById()">
+                    <mat-icon class="peque">search</mat-icon>
+                </button>
+                <button class="button_general button_primary" mat-raised-button color="primary" (click)="listObjects()">
+                    <mat-icon class="peque">manage_search</mat-icon>
+                </button>
+                <button class="button_general button_danger" mat-raised-button color="primary" (click)="deleteVideo()">
+                    <mat-icon class="peque">close</mat-icon>
+                </button>
+            </div>
+            <div class="container_row full_width">
+                <mat-form-field>
+                    <mat-label>Audio or Video</mat-label>
+                    <button mat-icon-button matPrefix (click)="f_input.click()">
+                        <mat-icon>attach_file</mat-icon>
+                    </button>
+                    <input type="text" readonly matInput formControlName="display" />
+                    <input type="file" multiple hidden #f_input (change)="handleFileInputChange(f_input.files)" />
+                    <mat-error>This field is required</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Sleep (millis)</mat-label>
+                    <input type="number" matInput formControlName="sleep" />
+                </mat-form-field>
+            </div>
+            <div class="container_row full_width">
+                <mat-form-field>
+                    <mat-label>Paralel images</mat-label>
+                    <input type="number" matInput formControlName="paralel" />
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Audio gap (seconds)</mat-label>
+                    <input type="number" matInput formControlName="audioGap" />
+                </mat-form-field>
+            </div>
+            <div class="row_of_buttons">
+                <mat-icon>delete_forever</mat-icon>
+                <label class="switch">
+                    <input type="checkbox" formControlName="eraseTempFiles">
+                    <div class="slider round"></div>
+                </label>
+                <mat-icon>face</mat-icon>
+                <label class="switch">
+                    <input type="checkbox" formControlName="useFace">
+                    <div class="slider round"></div>
+                </label>
+                <mat-icon>directions_car</mat-icon>
+                <label class="switch">
+                    <input type="checkbox" formControlName="usePlate">
+                    <div class="slider round"></div>
+                </label>
+                <mat-icon>chat</mat-icon>
+                <label class="switch">
+                    <input type="checkbox" formControlName="useSpeech">
+                    <div class="slider round"></div>
+                </label>
+            </div>
+            <div class="row_of_buttons">
+                <button class="button_general button_primary" mat-raised-button color="primary" (click)="addMedia()">
+                    <mat-icon class="peque">auto_awesome</mat-icon>
+                    <span>Start!</span>
+                </button>
+                <button class="button_general button_primary" mat-raised-button color="primary" (click)="updateOnce()">
+                    <mat-icon class="peque">refresh</mat-icon>
+                    <span>Read!</span>
+                </button>
+            </div>
+            <div class="fit jobs_container">
+                <span *ngIf="jobs.length > 0">Current Jobs:</span>
+                <ul>
+                    <li *ngFor="let job of jobs">
+                        <a class="a_link_break" href="{{ job.url }}" target="_blank">{{ job.text }}</a>&nbsp;<span>({{
+                            job.percentage
+                            }}%)</span><br>
+                        <mat-progress-bar class="value" mode="determinate" value="{{ job.percentage }}">
+                        </mat-progress-bar>
+                    </li>
+                </ul>
+            </div>
+            <div class="row_of_buttons">
+                <button class="button_general button_secondary" mat-raised-button color="secondary"
+                    (click)="startSimple()">
+                    <span>Test Flowchart</span>
+                </button>
+                <button class="button_general button_secondary" mat-raised-button color="secondary"
+                    (click)="startMultiple()">
+                    <span>Multiple Flowchart</span>
+                </button>
+                <button class="button_general button_secondary" mat-raised-button color="secondary"
+                    (click)="testProcessors(true)">
+                    <span>Test Processor json</span>
+                </button>
+                <button class="button_general button_secondary" mat-raised-button color="secondary"
+                    (click)="testProcessors(false)">
+                    <span>Test Processor msgpack</span>
+                </button>
+                <button class="button_general button_secondary" mat-raised-button color="secondary"
+                    (click)="testMinio()">
+                    <span>Test Minio</span>
+                </button>
+                <button class="button_general button_secondary" mat-raised-button color="secondary"
+                    (click)="testMilvus()">
+                    <span>Test Milvus</span>
+                </button>
+                <button class="button_general button_secondary" mat-raised-button color="secondary"
+                    (click)="testMongo()">
+                    <span>Test Mongo</span>
+                </button>
+                <button class="button_general button_secondary" mat-raised-button color="secondary"
+                    (click)="testPostgres()">
+                    <span>Test Postgres</span>
+                </button>
+            </div>
+            <br>
+            <div class="container_vertical full_width">
+                <h4>Health check:</h4>
+                <mat-form-field>
+                    <mat-label>Processor</mat-label>
+                    <select matNativeControl [(ngModel)]="processorSelected" [ngModelOptions]="{standalone: true}">
+                        <option [ngValue]="'llm'">LLM GPT4All</option>
+                        <option [ngValue]="'frameExtractor'">Frame (Face/Plate)</option>
+                        <option [ngValue]="'imageDescription'">Image Description</option>
+                        <option [ngValue]="'speechToText'">Speech to Text</option>
+                        <option [ngValue]="'audioFeature'">Audio Feature</option>
+                        <option [ngValue]="'milvusIx'">Index intent</option>
+                    </select>
+                </mat-form-field>
+                <mat-form-field class="full_width">
+                    <mat-label>Command</mat-label>
+                    <input matNativeControl type="text" [(ngModel)]="processorCommand"
+                        [ngModelOptions]="{standalone: true}" />
+                </mat-form-field>
+
+                <div class="container_horizontal full_width select_with_buttons">
+                    <mat-form-field class="flex_full_width">
+                        <mat-label>Python file</mat-label>
+                        <select matNativeControl [(ngModel)]="pythonFileSelected" [ngModelOptions]="{standalone: true}">
+                            <option *ngFor="let option of pythonChoices" [ngValue]="option.key">{{ option.value }}
+                            </option>
+                        </select>
+                    </mat-form-field>
+                    <button class="button_general button_primary" mat-raised-button color="primary"
+                        (click)="readPythonFile()">
+                        <mat-icon class="peque">file_copy</mat-icon>
+                    </button>
+                </div>
+
+                <div class="fit">
+                    <mat-form-field class="fit full_height">
+                        <mat-label>Python code</mat-label>
+                        <textarea class="long" matInput formControlName="python"></textarea>
+                    </mat-form-field>
+                    <div class="row_of_buttons">
+                        <button class="button_general button_secondary" mat-raised-button color="secondary"
+                            (click)="checkNVCC()">
+                            <span>nvcc</span>
+                        </button>
+                        <button class="button_general button_secondary" mat-raised-button color="secondary"
+                            (click)="checkLdConfigCuda()">
+                            <span>ldconfig</span>
+                        </button>
+                        <button class="button_general button_secondary" mat-raised-button color="secondary"
+                            (click)="checkNvidiaSmi()">
+                            <span>nvidia-smi</span>
+                        </button>
+                        <button class="button_general button_secondary" mat-raised-button color="secondary"
+                            (click)="processorCommandFunction()">
+                            <span>command</span>
+                        </button>
+                    </div>
+                    <br>
+                    <div class="container_horizontal full_width select_with_buttons">
+                        <button class="button_general button_primary" mat-raised-button color="primary"
+                            (click)="runPython()">
+                            <mat-icon class="peque">play_arrow</mat-icon>
+                            <span>Run</span>
+                        </button>
+                        <div class="flex_full_width">
+                            <mat-form-field>
+                                <mat-label>File to upload</mat-label>
+                                <button mat-icon-button matPrefix (click)="f_input2.click()">
+                                    <mat-icon>attach_file</mat-icon>
+                                </button>
+                                <input type="text" readonly matInput formControlName="displayFileUpload" />
+                                <input type="file" multiple hidden #f_input2
+                                    (change)="handleFileUploadChange(f_input2.files)" />
+                                <mat-error>This field is required</mat-error>
+                            </mat-form-field>
+                        </div>
+                        <button class="button_general button_primary" mat-raised-button color="primary"
+                            (click)="uploadTestFile()">
+                            <mat-icon class="peque">upload</mat-icon>
+                            <span>Upload</span>
+                        </button>
+                    </div>
+                </div>
+                <div *ngIf="processorHealtCheckResponse" class="container_vertical full_width">
+                    <pre>{{ processorHealtCheckResponse.command }} in {{seconds}}</pre>
+                    <pre>{{ processorHealtCheckResponse.stdout }}</pre>
+                    <pre class="stderr">{{ processorHealtCheckResponse.stderr }}</pre>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="right_side">
+        <form class="form-container layout_columna border_bottom" [formGroup]="formRight">
+            <div style="display: flex; flex-direction: row; width: 100%; gap: 15px; margin-bottom: 20px;">
+                <div class="fit">
+                    <app-imagepicker [options]="imageOptions" (eventSave)="changedImage($event)" [url]="getPageImage()">
+                    </app-imagepicker>
+                    <br>
+                    <div class="row_of_buttons">
+                        <button class="button_general button_primary" mat-raised-button color="primary"
+                            (click)="searchFace()">
+                            <mat-icon class="peque">search</mat-icon>
+                            <span>Search face</span>
+                        </button>
+                        <button class="button_general button_primary" mat-raised-button color="primary"
+                            (click)="searchFaceApi()">
+                            <mat-icon class="peque">search</mat-icon>
+                            <span>Search face api</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="fit">
+                    <mat-form-field class="fit full_height">
+                        <mat-label>Search text</mat-label>
+                        <textarea matInput formControlName="text"></textarea>
+                    </mat-form-field>
+                    <div class="row_of_buttons">
+                        <button class="button_general button_primary" mat-raised-button color="primary"
+                            (click)="searchPlate()">
+                            <mat-icon class="peque">search</mat-icon>
+                            <span>Search plate</span>
+                        </button>
+                        <button class="button_general button_primary" mat-raised-button color="primary"
+                            (click)="searchIntent()">
+                            <mat-icon class="peque">search</mat-icon>
+                            <span>Search intent</span>
+                        </button>
+                        <button class="button_general button_primary" mat-raised-button color="primary"
+                            (click)="askSearchable('and')">
+                            <mat-icon class="peque">search</mat-icon>
+                            <span>AND</span>
+                        </button>
+                        <button class="button_general button_primary" mat-raised-button color="primary"
+                            (click)="askSearchable('or')">
+                            <mat-icon class="peque">search</mat-icon>
+                            <span>OR</span>
+                        </button>
+                        <button class="button_general button_primary" mat-raised-button color="primary"
+                            (click)="chat()">
+                            <mat-icon class="peque">chat</mat-icon>
+                            <span>Chat</span>
+                        </button>
+                        <button class="button_general button_primary" mat-raised-button color="primary"
+                        (click)="resetChat()">
+                        <mat-icon class="peque">delete</mat-icon>
+                        <span>Reset chat</span>
+                    </button>
+                    </div>
+                </div>
+            </div>
+            <div class="answer_place">
+                <p>{{seconds}}</p>
+            </div>
+            <div *ngIf="answers.length > 0" class="answer_place results_container">
+                <ul class="">
+                    <li *ngFor="let answer of answers">
+                        <p class="answer" [innerHtml]="answer.txt"></p>
+                        <p class="query query_detail" [innerHtml]="answer.detail"></p>
+                    </li>
+                </ul>
+            </div>
+            <div *ngIf="boundingBoxDetection.length > 0" class="answer_place">
+                <div class="one_face_found" *ngFor="let oneFame of boundingBoxDetection; index as i">
+                    <!--pre>{{ oneFame[0][0] | json }}</pre-->
+                    <div class="single_found_face">
+                        <img [src]="completeResultImage(oneFame)" #image_found_face [attr.data-index]="i">
+                        <div class="bbox_overlay">
+                            <div class="my_bbox" *ngFor="let myBBox of oneFame.bbox" [ngStyle]="myBBox.style"></div>
+                        </div>
+                    </div>
+                    <p class="footer_text" [innerHtml]="oneFame.text"></p>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

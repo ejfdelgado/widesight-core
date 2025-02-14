@@ -1,0 +1,12 @@
+{
+    "config": {
+        "indexes": [
+            {
+                "desc": "Index",
+                "val": {
+                    "license_plate_text": 1
+                }
+            }
+        ]
+    }
+}

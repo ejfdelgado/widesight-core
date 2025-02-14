@@ -1,0 +1,81 @@
+{
+    "mongo": {
+        "insert": [
+            {
+                "name": "Sale el sol",
+                "colors": [
+                    "azulado",
+                    "el perro es azul claro",
+                    "verde"
+                ],
+                "count": 0,
+                "cardid": "1010166710",
+                "birthdate": 19851204,
+                "gender": "male"
+            },
+            {
+                "name": "pajaro veloz",
+                "colors": [
+                    "negro",
+                    "blanco"
+                ],
+                "count": 1,
+                "cardid": "123",
+                "birthdate": 19951204,
+                "gender": "female"
+            },
+            {
+                "name": "El cielo azul está en el campo",
+                "colors": [
+                    "amarillo",
+                    "plateado"
+                ],
+                "count": 10,
+                "cardid": "456",
+                "birthdate": 20061204,
+                "gender": "male"
+            }
+        ],
+        "update": {
+            "name": "Solo prefiero el púrpura"
+        },
+        "config": {
+            "indexes": [
+                {
+                    "desc": "Unique Index",
+                    "val": {
+                        "cardid": 1
+                    },
+                    "opt": {
+                        "unique": true
+                    }
+                },
+                {
+                    "desc": "Search text across multiple text fields",
+                    "val": {
+                        "name": "text",
+                        "colors": "text"
+                    },
+                    "opt": {
+                        "collation": {
+                            "locale": "simple"
+                        }
+                    }
+                },
+                {
+                    "desc": "Index birthdate asc for gender asc",
+                    "val": {
+                        "birthdate": 1,
+                        "gender": 1
+                    }
+                }
+            ]
+        }
+    },
+    "state": {
+        "processors": {
+            "channel": "post"
+        },
+        "sources": {}
+    }
+}

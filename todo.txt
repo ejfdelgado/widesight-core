@@ -1,0 +1,37 @@
+
+1. Donde se escribe en postgres, agregar el speaker!
+2. Cuantificar el intent y agregarlo en el playground.
+3. Revisar las versiones de los modelos de la diarización, librerías vs modelos.
+
+Use bucket instead of MinIO
+
+sleep«0;1000»
+
+Use env variable to force mutex
+OutOfMemory when plate... (mutex) DONE
+
+Permitir ejecutar algun flujo al abortar con error.
+
+Add appId in milvus to allow filter using IN appIds...
+
+Usar minDistance en la busqueda de cara
+Cambiar estados del video CREATED, UPLOADED, PROCESSING, DONE, ERROR
+
+
+Rotate video image
+Merge multiple videos
+
+Bug: photo 6 infinite load...
+Bug: En Mongo almacenar tambien el tiempo en millis mas el offset DONE?
+Bug: Write column speaker to object sql table
+Bug: permitir que se convierta en error el processor_process cuando no envio extra en searchFace
+Bug: Cuando se asigna una salida a varios outputs se pueden perder los hijos del objeto, se uso JSON.parse(JSON.stringify)...
+
+Use sanitizeTextNull in all sqls
+
+Milvus, use database: intent, face, diarization, and use collection per accountId
+Redefine milvus, mongo schemas given dbData
+- Use different databases given accountId, maybe appId be a column
+
+Page intent in python
+- Allow milvus offset to paginate in intents, add similarity DONE?

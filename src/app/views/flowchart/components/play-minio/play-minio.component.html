@@ -1,0 +1,39 @@
+<div class="my_full">
+    <div class="left_side">
+        <form class="form-container layout_columna border_bottom" [formGroup]="formLeft">
+            <mat-form-field style="width: 100%;">
+                <mat-label>File</mat-label>
+                <input matInput formControlName="moviePath" placeholder="Movie path" type="text" required />
+            </mat-form-field>
+            <div class="buttons_container">
+                <mat-form-field style="flex: 1;">
+                    <mat-label>Start (second)</mat-label>
+                    <input matInput formControlName="startTime" placeholder="0" type="number" required />
+                </mat-form-field>
+                <mat-form-field style="flex: 1;">
+                    <mat-label>End (second)</mat-label>
+                    <input matInput formControlName="endTime" placeholder="0" type="number" required />
+                </mat-form-field>
+            </div>
+            <div class="buttons_container">
+                <button class="button_general button_primary" mat-raised-button color="primary" (click)="pageMongo()">
+                    <mat-icon class="peque">auto_awesome</mat-icon>
+                    <span>Page</span>
+                </button>
+                <button class="button_general button_primary" mat-raised-button color="primary"
+                    (click)="destroyFrames()">
+                    <mat-icon class="peque">delete</mat-icon>
+                    <span>Delete all</span>
+                </button>
+            </div>
+        </form>
+        <div class="frame_gallery_container">
+            <div class="frame_gallery">
+                <div class="one_frame" *ngFor="let frame of loadedArray">
+                    <img [src]="completeResultImage('public', frame.path)">
+                    <span>Time: {{ frame.t }}s</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

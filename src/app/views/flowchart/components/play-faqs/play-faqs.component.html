@@ -1,0 +1,41 @@
+<div class="my_full">
+    <div class="left_side">
+        <form class="form-container layout_columna border_bottom" [formGroup]="formLeft">
+            <mat-form-field class="fit full_height">
+                <mat-label>FAQ's</mat-label>
+                <textarea matInput formControlName="text"></textarea>
+            </mat-form-field>
+            <button class="button_general button_primary" mat-raised-button color="primary" (click)="index()">
+                <mat-icon class="peque">auto_awesome</mat-icon>
+                <span>Index</span>
+            </button>
+        </form>
+    </div>
+    <div class="right_side">
+        <form class="form-container layout_columna border_bottom gap_10" [formGroup]="formRight">
+            <mat-form-field class="fit full_height">
+                <mat-label>Question</mat-label>
+                <textarea matInput formControlName="text" (keydown)="textAreaKeyDown($event)"></textarea>
+            </mat-form-field>
+            <mat-form-field class="fit full_height">
+                <mat-label>Phrase</mat-label>
+                <textarea matInput formControlName="phrase"></textarea>
+            </mat-form-field>
+            <div class="row_of_buttons">
+                <button class="button_general button_primary" mat-raised-button color="primary" (click)="ask()">
+                    <mat-icon class="peque">search</mat-icon>
+                    <span>Ask</span>
+                </button>
+                <button class="button_general button_primary" mat-raised-button color="primary" (click)="compare()">
+                    <mat-icon class="peque">play_arrow</mat-icon>
+                    <span>Compare</span>
+                </button>
+            </div>
+            <div class="fit answer_place">
+                <p>{{seconds}}</p>
+                <p class="answer">{{ respuesta }}</p>
+                <p class="query">{{ sourceQuery }}</p>
+            </div>
+        </form>
+    </div>
+</div>

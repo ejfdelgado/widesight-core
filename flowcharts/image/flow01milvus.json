@@ -1,0 +1,67 @@
+{
+    "faces": {
+        "collection_name": "faces",
+        "consistency_level": "Eventually",
+        "enable_dynamic_field": false,
+        "auto_id": true,
+        "index_params": [
+            {
+                "field_name": "face_vector",
+                "index_type": "FLAT",
+                "metric_type": "IP"
+            }
+        ],
+        "fields": [
+            {
+                "name": "id",
+                "data_type": "DataType.Int64",
+                "is_primary_key": true,
+                "description": "id",
+                "autoID": true
+            },
+            {
+                "name": "document_id",
+                "data_type": "DataType.VarChar",
+                "description": "text",
+                "max_length": 512
+            },
+            {
+                "name": "face_path",
+                "data_type": "DataType.VarChar",
+                "description": "face path",
+                "max_length": 2048
+            },
+            {
+                "name": "millis",
+                "data_type": "DataType.Float",
+                "description": "millis"
+            },
+            {
+                "name": "x1",
+                "data_type": "DataType.Float",
+                "description": "Box x1"
+            },
+            {
+                "name": "y1",
+                "data_type": "DataType.Float",
+                "description": "Box y1"
+            },
+            {
+                "name": "x2",
+                "data_type": "DataType.Float",
+                "description": "Box x2"
+            },
+            {
+                "name": "y2",
+                "data_type": "DataType.Float",
+                "description": "Box y2"
+            },
+            {
+                "name": "face_vector",
+                "data_type": "DataType.FloatVector",
+                "dim": 512,
+                "description": "face_vector"
+            }
+        ]
+    }
+}

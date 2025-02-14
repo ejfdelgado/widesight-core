@@ -1,0 +1,92 @@
+<mxfile host="65bd71144e">
+    <diagram id="y7LyX2alFGtX07KHJ8K6" name="Page-1">
+        <mxGraphModel dx="726" dy="432" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="4" style="edgeStyle=none;html=1;" parent="1" source="74" target="46" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="447.5" y="550" as="targetPoint"/>
+                        <mxPoint x="447.5" y="470" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="70" value="isTrue«${args.use_speech}!==true &#10;&amp;&amp; ${args.use_face}!==true &#10;&amp;&amp; ${scope.config_meta}===true &#10;&amp;&amp; ${args.use_plate}!==true»" style="edgeLabel;align=center;verticalAlign=middle;resizable=0;points=[];fontColor=#FFFFFF;fontSize=12;" parent="4" vertex="1" connectable="0">
+                    <mxGeometry x="-0.2746" y="-2" relative="1" as="geometry">
+                        <mxPoint x="2" y="5" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="5" value="end" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffcc99;strokeColor=#36393d;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="427.5" y="820" width="40" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="47" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="46" target="48" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="46" value="milvus«&quot;database.destroy&quot;;&quot;temp_${scope.room}&quot;»" style="rounded=1;whiteSpace=wrap;fillColor=#ffff88;strokeColor=#36393d;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="270" y="570" width="355" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="49" style="edgeStyle=none;html=1;" parent="1" source="48" target="71" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="448" y="710" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="48" value="milvus«&quot;introspect&quot;»" style="rounded=1;whiteSpace=wrap;fillColor=#ffff88;strokeColor=#36393d;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="362.51" y="640" width="170" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="72" style="edgeStyle=none;html=1;" parent="1" source="71" target="5" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="71" value="postgres«&quot;execute&quot;;&#10;&quot;args.db&quot;;({&quot;media&quot;:{}});&#10;&quot;srv/wideSight/sql/updates/video_done.sql&quot;»&#10;toc«&quot;metric&quot;»" style="rounded=1;whiteSpace=wrap;fillColor=#ffff88;strokeColor=#36393d;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="297.5" y="710" width="300" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="75" value="" style="edgeStyle=none;" parent="1" source="73" target="74" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="698" y="184"/>
+                            <mxPoint x="697.51" y="390"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="76" value="sleep«0;10000»" style="edgeLabel;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;" parent="75" vertex="1" connectable="0">
+                    <mxGeometry x="-0.1966" y="-1" relative="1" as="geometry">
+                        <mxPoint x="1" y="13" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="79" style="edgeStyle=none;html=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="73" target="74" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="247.51" y="400" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="80" value="isTrue«${args.use_speech}!==true &#10;&amp;&amp; ${args.use_face}!==true &#10;&amp;&amp; ${scope.config_meta}===true &#10;&amp;&amp; ${args.use_plate}!==true»" style="edgeLabel;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;" parent="79" vertex="1" connectable="0">
+                    <mxGeometry x="-0.2601" y="-1" relative="1" as="geometry">
+                        <mxPoint x="1" y="24" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="73" value="postgres«&quot;execute&quot;;&#10;&quot;args.db&quot;;&quot;scope&quot;;&#10;&quot;srv/wideSight/sql/updates/video_progress.sql&quot;»" style="rounded=1;whiteSpace=wrap;fillColor=#ffff88;strokeColor=#36393d;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="297.51" y="149" width="300" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="81" style="edgeStyle=none;html=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=12;" parent="1" source="74" target="73" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="190" y="390"/>
+                            <mxPoint x="190" y="185"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="82" value="isFalse«${args.use_speech}!==true &#10;&amp;&amp; ${args.use_face}!==true &#10;&amp;&amp; ${scope.config_meta}===true &#10;&amp;&amp; ${args.use_plate}!==true»" style="edgeLabel;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;" parent="81" vertex="1" connectable="0">
+                    <mxGeometry x="0.2821" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="74" value="" style="ellipse;whiteSpace=wrap;html=1;fillColor=#b0e3e6;strokeColor=#0e8088;fontColor=#050505;" parent="1" vertex="1">
+                    <mxGeometry x="427.5" y="370" width="40" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="78" style="edgeStyle=none;html=0;" parent="1" source="77" target="73" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="77" value="start" style="ellipse;whiteSpace=wrap;html=1;fillColor=#b0e3e6;strokeColor=#0e8088;fontColor=#050505;" parent="1" vertex="1">
+                    <mxGeometry x="427.51" y="40" width="40" height="40" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

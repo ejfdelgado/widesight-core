@@ -1,0 +1,19 @@
+{
+    "metadata": {},
+    "state": {
+        "processors": {
+            "channel": "post",
+            "localFiles": {
+                "1": {}
+            }
+        },
+        "sources": {
+            "myvideo": {
+                "image": {
+                    "type": "image",
+                    "src": "/tmp/movies/carplate.mp4"
+                }
+            }
+        }
+    }
+}

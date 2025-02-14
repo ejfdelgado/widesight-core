@@ -1,0 +1,38 @@
+{
+    "channel": "post",
+    "localFiles": {
+        "1": {},
+        "2": {
+            "extension": "png"
+        },
+        "3": {
+            "extension": "png"
+        },
+        "4": {
+            "extension": "png"
+        }
+    },
+    "speechToText": {
+        "1": {
+            "language": "es",
+            "extension": "mp3"
+        }
+    },
+    "audioFeature": {
+        "1": {
+            "collection": "diarization"
+        }
+    },
+    "milvusIx": {
+        "1": {
+            "db": "searchable",
+            "collection": "intent"
+        }
+    },
+    "frameExtractor": {
+        "1": {}
+    },
+    "llm": {
+        "1": {}
+    }
+}

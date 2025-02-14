@@ -1,0 +1,50 @@
+¿Sonido ambiente: tráfico de vehículos, pasos acelerados sobre el pavimento, ruido de radios policiales en la distancia.?
+a
+
+¿Policía: "¡Alto! Policía, deténgase ahí."?
+a
+
+¿El usuario gira bruscamente, encarando al policía. Se escucha la respiración agitada del usuario y un leve crujido de ropa ajustada.?
+a
+
+¿Usuario: "Qué quieres ¡No he hecho nada malo! ¡Déjame en paz!"?
+a
+
+¿Policía: "Por favor, mantenga la calma. Necesito que coopere. Coloque las manos donde pueda verlas."?
+a
+
+¿El usuario da un paso hacia el policía, levantando las manos en un gesto agresivo. El tono de voz se eleva.?
+a
+
+¿Usuario: "¡No voy a hacer lo que me digas! ¡No tienes derecho a detenerme!"?
+a
+
+¿Policía: "Se lo repito, mantenga la calma. Esto es solo una revisión rutinaria. Necesito que se tranquilice y siga mis instrucciones."?
+a
+
+¿El usuario empuja al policía, y se escucha un golpe sordo cuando el policía retrocede un paso, respirando pesadamente.?
+a
+
+¿Usuario: "¡Te dije que me dejes en paz! ¡No tienes idea con quién te estás metiendo!"?
+a
+
+¿Policía: "¡Alto ahí! ¡Eso es un asalto a un oficial de policía! ¡Voy a pedir refuerzos!"?
+a
+
+¿El policía, ahora con un tono más firme, hace una rápida llamada por radio. Se escucha un pitido seguido de voces lejanas respondiendo.?
+a
+
+¿Policía (por radio): "Central, necesito apoyo inmediato en mi ubicación. Hombre violento, aproximadamente 1.80 de estatura, 90 kilos, cabello oscuro, camiseta negra y jeans. ¡Solicito apoyo ya!"?
+a
+
+¿El usuario saca un objeto del bolsillo, el sonido metálico sugiere que es un objeto contundente. El usuario lo sostiene de manera amenazante.?
+a
+
+¿Usuario: "Qué vas a hacer ahora, eh ¡No te acerques!"?
+a
+
+¿Policía: "Baje el arma, no lo haga más difícil para usted. Baje el arma ahora."?
+a
+
+¿Se escucha el sonido de sirenas acercándose rápidamente. El usuario mira a su alrededor, susurrando algo inaudible, pero claramente nervioso. Las sirenas se intensifican.?
+a

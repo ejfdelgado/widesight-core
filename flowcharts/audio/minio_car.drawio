@@ -1,0 +1,40 @@
+<mxfile host="65bd71144e">
+    <diagram id="y7LyX2alFGtX07KHJ8K6" name="Page-1">
+        <mxGraphModel dx="789" dy="363" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="55" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="2" target="64" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="365" y="170" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="65" value="sleep«0;1000»" style="edgeLabel;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;" vertex="1" connectable="0" parent="55">
+                    <mxGeometry x="-0.2761" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="2" value="start" style="ellipse;whiteSpace=wrap;fillColor=#b0e3e6;strokeColor=#0e8088;fontColor=#050505;" parent="1" vertex="1">
+                    <mxGeometry x="345" y="40" width="40" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="33" value="ok" style="ellipse;whiteSpace=wrap;fillColor=#b0e3e6;strokeColor=#0e8088;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="345" y="380" width="40" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="58" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="64" target="62" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="365" y="210" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="63" style="edgeStyle=none;html=1;fontSize=12;" parent="1" source="62" target="33" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="62" value="set«&quot;b.localFiles.car_bytes.${index.k}.done&quot;;true»" style="rounded=1;whiteSpace=wrap;fillColor=#ffff88;strokeColor=#36393d;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="180" y="290" width="370" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="64" value="minio«&quot;write&quot;;&#10;&quot;${minio.bucket}&quot;;&quot;b.localFiles.car_bytes.${index.k}.path&quot;;&#10;&quot;b.localFiles.car_bytes.${index.k}.bytes&quot;;&#10;(${minio.metadata})»" style="rounded=1;whiteSpace=wrap;fillColor=#ffff88;strokeColor=#36393d;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="162.73999999999998" y="150" width="404.52" height="73.86" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

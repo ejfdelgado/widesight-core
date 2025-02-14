@@ -1,0 +1,110 @@
+<div class="level_0">
+    <div class="head_part">
+        <app-statusbar [title]="connectionState" [extraOptions]="extraOptions"></app-statusbar>
+    </div>
+    <div class="body_part" *ngIf="currentView == 'playground_faqs'">
+        <app-play-faqs></app-play-faqs>
+    </div>
+    <div class="body_part" *ngIf="currentView == 'playground_intents'">
+        <app-play-intents></app-play-intents>
+    </div>
+    <div class="body_part" *ngIf="currentView == 'playground_milvus'">
+        <app-play-minio></app-play-minio>
+    </div>
+    <div class="body_part" *ngIf="currentView == 'playground_document'">
+        <app-play-documents></app-play-documents>
+    </div>
+    <div class="body_part" *ngIf="currentView == 'playground_sppech2text'">
+        <app-speech-to-text></app-speech-to-text>
+    </div>
+    <div class="body_part" *ngIf="currentView == 'playground_milvus_admin'">
+        <app-milvus></app-milvus>
+    </div>
+    <div class="body_part" *ngIf="currentView == 'flowchart'">
+        <div class="top_side">
+            <div></div>
+            <button mat-raised-button color="" (click)="destroyModel()" type="button">
+                <mat-icon>close</mat-icon>
+                <span>Close</span>
+            </button>
+            <button mat-raised-button color="" (click)="localLoadFlowChart()" type="button">
+                <mat-icon>refresh</mat-icon>
+                <span>Reload</span>
+            </button>
+            <button mat-raised-button color="" (click)="runFlowChart()" type="button">
+                <mat-icon>play_arrow</mat-icon>
+                <span>Play</span>
+            </button>
+            <button mat-raised-button color="" (click)="pauseFlowChart()" type="button">
+                <mat-icon>pause</mat-icon>
+                <span>Pause</span>
+            </button>
+            <button mat-raised-button color="" (click)="stopFlowChart()" type="button">
+                <mat-icon>stop</mat-icon>
+                <span>Stop</span>
+            </button>
+            <!--input type="text" [(ngModel)]="livemodel.name" (ngModelChange)="trackChanges(['name'])"-->
+        </div>
+        <div class="bottom_side">
+            <div class="left_side">
+                <mat-tab-group headerPosition="below" animationDuration="0ms"
+                    (selectedTabChange)="tabFlowChartChanged($event)">
+                    <mat-tab *ngFor="let flowchart of flowCharts" label="{{ flowchart.key }}" class="top_menu">
+                        <div class="left_side_content">
+                            <svg #svgContainers class="graph_class noselect svg_zoom"
+                                [innerHtml]="flowchart.html"></svg>
+                        </div>
+                    </mat-tab>
+                </mat-tab-group>
+            </div>
+            <div class="right_side">
+                <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start" animationDuration="0ms">
+                    <mat-tab label="Model" class="top_menu">
+                        <div class="left_side_content">
+                            <pre [innerHtml]="livemodel.data | jsonColor"></pre>
+                        </div>
+                    </mat-tab>
+                    <mat-tab label="Errors" class="top_menu">
+                        <div class="left_side_content">
+                            <ul>
+                                <li *ngFor="let some_error of errors">{{ some_error }}</li>
+                            </ul>
+                        </div>
+                    </mat-tab>
+                    <mat-tab label="Performance" class="top_menu">
+                        <div class="left_side_content performance_container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Process / seconds</th>
+                                        <th>N</th>
+                                        <th>Min</th>
+                                        <th>Max</th>
+                                        <th>Avg</th>
+                                        <th>Med</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr
+                                        *ngFor="let row of livemodel?.data?.performance | sortPerformance; trackBy:identifyPerformanceItem">
+                                        <td class="break_all_letters">{{ row.txt }}</td>
+                                        <td>{{ row.n }}</td>
+                                        <td>{{ row.min | MillisToSeconds }}</td>
+                                        <td>{{ row.max | MillisToSeconds }}</td>
+                                        <td>{{ row.avg | MillisToSeconds }}</td>
+                                        <td>{{ row.med | MillisToSeconds }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </mat-tab>
+                    <mat-tab label="Transcript" class="top_menu">
+                        <div class="left_side_content my_transcript">
+                            <pre [innerHtml]="transcriptions | jsonColor"></pre>
+                        </div>
+                    </mat-tab>
+                </mat-tab-group>
+            </div>
+        </div>
+    </div>
+</div>

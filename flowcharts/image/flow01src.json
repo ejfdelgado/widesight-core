@@ -1,0 +1,9 @@
+{
+    "localFiles": {
+        "image": {
+            "type": "image",
+            "src": "/tmp/movies/protesta.mp4",
+            "base64": false
+        }
+    }
+}

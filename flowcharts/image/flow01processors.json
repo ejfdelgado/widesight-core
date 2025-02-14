@@ -1,0 +1,20 @@
+{
+    "channel": "post",
+    "localFiles": {
+        "1": {
+            "extension": "png"
+        },
+        "2": {
+            "extension": "png"
+        },
+        "3": {
+            "extension": "png"
+        },
+        "4": {
+            "extension": "png"
+        }
+    },
+    "frameExtractor": {
+        "1": {}
+    }
+}

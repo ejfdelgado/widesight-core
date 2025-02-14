@@ -1,0 +1,56 @@
+<div class="container_vertical padding_10">
+    <div class="row_options">
+        <button class="button_general" mat-raised-button (click)="introspect()">
+            <mat-icon class="peque">visibility</mat-icon>
+            <span>Introspect</span>
+        </button>
+        <mat-form-field class="full">
+            <mat-label>Database</mat-label>
+            <input type="text" matInput [(ngModel)]="dataBaseName"/>
+        </mat-form-field>
+        <button class="button_general" mat-raised-button (click)="createDatabase()">
+            <mat-icon class="peque">add</mat-icon>
+            <span>Create</span>
+        </button>
+        <mat-form-field class="">
+            <mat-label>Schema</mat-label>
+            <select matNativeControl [(ngModel)]="selectedSchema">
+                <option [ngValue]="'intent'">intent</option>
+                <option [ngValue]="'diarization'">diarization</option>
+                <option [ngValue]="'faces'">faces</option>
+            </select>
+        </mat-form-field>
+    </div>
+    <div class="container_vertical text_names">
+        <ul>
+            <li *ngFor="let db of dbs">
+                <div class="container_vertical">
+                    <div class="container_horizontal">
+                        <p>Database: {{ db.name }}</p>
+                        <button class="button_general" mat-raised-button (click)="addCollection(db.name)">
+                            <mat-icon class="peque">add</mat-icon>
+                        </button>
+                        <button class="button_general" mat-raised-button (click)="destroyDatabase(db.name)">
+                            <mat-icon class="peque">close</mat-icon>
+                        </button>
+                    </div>
+                    <ul>
+                        <li *ngFor="let collection of db.collections">
+                            <div class="container_horizontal">
+                                <p>Collection: {{ collection.name }}</p>
+                                <button class="button_general" mat-raised-button
+                                    (click)="describeCollection(db.name, collection.name)">
+                                    <mat-icon class="peque">visibility</mat-icon>
+                                </button>
+                                <button class="button_general" mat-raised-button
+                                    (click)="destroyCollection(db.name, collection.name)">
+                                    <mat-icon class="peque">close</mat-icon>
+                                </button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

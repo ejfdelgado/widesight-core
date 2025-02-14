@@ -1,0 +1,42 @@
+{
+    "minio": {
+        "metadata": {
+            "Content-Type": "image/png"
+        },
+        "periodSeconds": 5,
+        "bucket": "public"
+    },
+    "mongo": {
+        "config": {
+            "indexes": [
+                {
+                    "desc": "Compound index",
+                    "val": {
+                        "src": 1,
+                        "t": 1
+                    }
+                }
+            ]
+        }
+    },
+    "state": {
+        "processors": {
+            "channel": "post",
+            "localFiles": {
+                "1": {
+                    "extension": "png"
+                },
+                "2": {}
+            }
+        },
+        "sources": {
+            "myvideo": {
+                "image": {
+                    "type": "image",
+                    "src": "/tmp/movies/protesta.mp4",
+                    "base64": false
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "channel": "post",
+    "milvusIx": {
+        "1": {
+            "db": "searchable",
+            "collection": "faqs"
+        }
+    }
+}
